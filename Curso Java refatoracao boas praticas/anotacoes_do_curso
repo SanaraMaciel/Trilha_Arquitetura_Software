@@ -1,0 +1,13 @@
+
+A aplicação será integrada com uma API externa, que será a responsável por salvar pets e abrigos da aplicação console, assim como retorná-los quando fizermos a requisição através da aplicação console. Essa API está incluída no formato .jar no nosso projeto que vamos utilizar para o curso. E para testar a aplicação console precisamos iniciar o arquivo .jar. Para isso, podemos usar o seguinte comando
+
+para testar a aplicacao do adopet_api-console usar o comando : java -jar api.jar
+
+
+Uma vez feito isso, a aplicação Spring vai iniciar e tudo estará pronto para fazer o curso.
+
+Um ponto importante: quando quiser "desligar" a API, basta pressionar Ctrl + C.
+
+
+
+
