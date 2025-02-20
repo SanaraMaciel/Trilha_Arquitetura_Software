@@ -15,17 +15,42 @@
     </properties>
 
     <dependencies>
+
+        <!-- dependencia para converter/usar objetos json na aplicacao -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.10.1</version>
         </dependency>
 
+        <!-- dependencia para serializacao e deserializacao de objetos com jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.15.1</version>
         </dependency>
+
+
+        <!-- dependencia de testes unitarios automatizados com junit
+        https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- dependencia para fazer um mock - Mock (Simulacao), disponível nos testes de unidade.
+        Mock é uma biblioteca que nos auxilia a simular algum recurso externo, como uma classe externa.
+        https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 </project>

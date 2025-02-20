@@ -29,7 +29,7 @@ public class AbrigoService {
         List<Abrigo> abrigoList = Arrays.stream(abrigos).toList();
 
         if (abrigoList.isEmpty()) {
-            System.out.println("Não existem abrigos cadastrados!");
+            System.out.println("Nao existem abrigos cadastrados!");
 
         } else {
             mostrarAbrigos(abrigoList);
