@@ -3,11 +3,11 @@ A aplicação será integrada com uma API externa, que será a responsável por 
 
 para testar a aplicacao do adopet_api-console usar o comando : java -jar api.jar
 
-
 Uma vez feito isso, a aplicação Spring vai iniciar e tudo estará pronto para fazer o curso.
 
 Um ponto importante: quando quiser "desligar" a API, basta pressionar Ctrl + C.
 
+toda alteração que fizer é necessário gerar esse jar novamente para que possa refletir as alterações que foram realizadas.
 
 
 
