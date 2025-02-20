@@ -2,12 +2,18 @@ package br.com.sanara.domain;
 
 public class Pet {
 
+    private Long id;
     private String tipo;
     private String nome;
     private String raca;
     private int idade;
     private String cor;
     private Float peso;
+
+
+    public Pet() {
+        // Construtor vazio
+    }
 
     public Pet(String tipo, String nome, String raca, int idade, String cor, Float peso) {
         this.tipo = tipo;
@@ -18,8 +24,22 @@ public class Pet {
         this.peso = peso;
     }
 
-    public Pet() {
-        // Construtor vazio
+    public Pet(Long id, String tipo, String nome, String raca, int idade, String cor, Float peso) {
+        this.id = id;
+        this.tipo = tipo;
+        this.nome = nome;
+        this.raca = raca;
+        this.idade = idade;
+        this.cor = cor;
+        this.peso = peso;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTipo() {
