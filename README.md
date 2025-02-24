@@ -12,9 +12,9 @@ Refactoring Guru: Um excelente site com explicações detalhadas e exemplos de p
 TutorialsPoint: Oferece tutoriais abrangentes sobre padrões de projeto em Java;
 Repositório no GitHub: Um repositório que contém uma ampla coleção de implementações de padrões de projeto em Java.
 
-- Refactoring Guru [Refactoring Guru](https://refactoring.guru/pt-br/design-patterns)
-- TutorialsPoint [TutorialsPoint](https://www.tutorialspoint.com/design_pattern/index.htm)
-- Repositório no GitHub [Repositório no GitHub](https://github.com/iluwatar/java-design-patterns)
+- Refactoring Guru:  [Refactoring Guru](https://refactoring.guru/pt-br/design-patterns)
+- TutorialsPoint:  [TutorialsPoint](https://www.tutorialspoint.com/design_pattern/index.htm)
+- Repositório no GitHub:  [Repositório no GitHub](https://github.com/iluwatar/java-design-patterns)
 
 
 ## 📚 Tópicos Abordados
