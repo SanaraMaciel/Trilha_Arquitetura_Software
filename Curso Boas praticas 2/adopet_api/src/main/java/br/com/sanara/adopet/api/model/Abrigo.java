@@ -36,6 +36,12 @@ public class Abrigo {
     @JsonManagedReference("abrigo_pets")
     private List<Pet> pets;
 
+    public Abrigo(@NotBlank String nome, @NotBlank String email, @NotBlank String telefone) {
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
