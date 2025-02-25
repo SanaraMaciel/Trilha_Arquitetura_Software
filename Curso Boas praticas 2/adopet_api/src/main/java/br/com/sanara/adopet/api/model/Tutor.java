@@ -1,5 +1,6 @@
 package br.com.sanara.adopet.api.model;
 
+import br.com.sanara.adopet.api.dto.TutorDto;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -24,17 +25,21 @@ public class Tutor {
     @OneToMany(mappedBy = "tutor")
     private List<Adocao> adocoes;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Tutor tutor = (Tutor) o;
-        return Objects.equals(id, tutor.id);
+    public Tutor() {
+        //contrutor padrao
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public Tutor(String nome, String telefone, String email) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+    }
+
+    public void atualizarDados(TutorDto dto) {
+        this.nome = dto.nome();
+        this.telefone = dto.telefone();
+        this.email = dto.email();
+
     }
 
     public Long getId() {
@@ -76,4 +81,20 @@ public class Tutor {
     public void setAdocoes(List<Adocao> adocoes) {
         this.adocoes = adocoes;
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tutor tutor = (Tutor) o;
+        return Objects.equals(id, tutor.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package br.com.sanara.adopet.api.model;
 
+import br.com.sanara.adopet.api.dto.CadastroPetDto;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -32,6 +33,31 @@ public class Pet {
 
     @OneToOne(fetch = FetchType.LAZY)
     private Adocao adocao;
+
+    public Pet() {
+        //contrutor padrao
+    }
+
+    public Pet(TipoPet tipo, String nome, String cor, String raca, Integer idade, Float peso) {
+        this.tipo = tipo;
+        this.nome = nome;
+        this.cor = cor;
+        this.raca = raca;
+        this.idade = idade;
+        this.peso = peso;
+    }
+
+    public Pet(CadastroPetDto dto, Abrigo abrigo) {
+        this.tipo = dto.tipo();
+        this.nome = dto.cor();
+        this.cor = dto.cor();
+        this.raca = dto.raca();
+        this.idade = dto.idade();
+        this.peso = dto.peso();
+        this.adotado = dto.adotado();
+        this.abrigo = abrigo;
+    }
+
 
     @Override
     public boolean equals(Object o) {

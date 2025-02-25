@@ -1,6 +1,6 @@
 package br.com.sanara.adopet.api.controller;
 
-import br.com.sanara.adopet.api.dto.DadosDetalhesPet;
+import br.com.sanara.adopet.api.dto.DadosDetalhesPetDto;
 import br.com.sanara.adopet.api.model.Pet;
 import br.com.sanara.adopet.api.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +20,12 @@ public class PetController {
     private PetRepository repository;
 
     @GetMapping
-    public ResponseEntity<List<DadosDetalhesPet>> listarTodosDisponiveis() {
-        List<Pet> pets = repository.findAll();
-        List<DadosDetalhesPet> disponiveis = new ArrayList<>();
+    public ResponseEntity<List<DadosDetalhesPetDto>> listarTodosDisponiveis() {
+        List<Pet> pets = repository.findAllByAdotadoFalse();
+        List<DadosDetalhesPetDto> disponiveis = new ArrayList<>();
         for (Pet pet : pets) {
             if (pet.getAdotado() == false) {
-                disponiveis.add(new DadosDetalhesPet(pet));
+                disponiveis.add(new DadosDetalhesPetDto(pet));
             }
         }
         return ResponseEntity.ok(disponiveis);

@@ -5,6 +5,8 @@ import br.com.sanara.adopet.api.dto.PetDto;
 import br.com.sanara.adopet.api.model.Abrigo;
 import br.com.sanara.adopet.api.model.Pet;
 import br.com.sanara.adopet.api.repository.AbrigoRepository;
+import br.com.sanara.adopet.api.service.AbrigoService;
+import br.com.sanara.adopet.api.service.PetService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +24,29 @@ public class AbrigoController {
     @Autowired
     private AbrigoRepository repository;
 
+    @Autowired
+    private AbrigoService abrigoService;
+
+    @Autowired
+    private PetService petService;
+
     @GetMapping
-    public ResponseEntity<List<Abrigo>> listar() {
-        return ResponseEntity.ok(repository.findAll());
+    public ResponseEntity<List<AbrigoDto>> listar() {
+
+        /* metodo antes da refatoracao
+        List<Abrigo> abrigos = abrigoService.findAll();
+
+        // Transforma cada Abrigo em AbrigoDto e coleta em uma lista
+        List<AbrigoDto> dtos = abrigos.stream()
+                .map(AbrigoDto::new)
+                .toList();
+
+        // Retorna a lista de DTOs no corpo da resposta
+        return ResponseEntity.ok(dtos);*/
+
+        List<AbrigoDto> abrigos = abrigoService.listar();
+        return ResponseEntity.ok(abrigos);
+
     }
 
     @PostMapping
@@ -79,16 +101,10 @@ public class AbrigoController {
         try {
             Long id = Long.parseLong(idOuNome);
             Abrigo abrigo = repository.getReferenceById(id);
-
-            Pet pet = new Pet();
-            pet.setTipo(petDto.tipo());
-            pet.setNome(petDto.nome());
-            pet.setCor(petDto.cor());
-            pet.setRaca(petDto.raca());
-            pet.setIdade(petDto.idade());
-            pet.setPeso(petDto.peso());
+            Pet pet = new Pet(petDto.tipo(), petDto.nome(), petDto.cor(), petDto.raca(), petDto.idade(), petDto.peso());
             pet.setAbrigo(abrigo);
             pet.setAdotado(false);
+
             abrigo.getPets().add(pet);
             repository.save(abrigo);
             return ResponseEntity.ok().build();
@@ -97,16 +113,11 @@ public class AbrigoController {
         } catch (NumberFormatException nfe) {
             try {
                 Abrigo abrigo = repository.findByNome(idOuNome);
-                Pet pet = new Pet();
-                pet.setTipo(petDto.tipo());
-                pet.setNome(petDto.nome());
-                pet.setCor(petDto.cor());
-                pet.setRaca(petDto.raca());
-                pet.setIdade(petDto.idade());
-                pet.setPeso(petDto.peso());
+                Pet pet = new Pet(petDto.tipo(), petDto.nome(), petDto.cor(), petDto.raca(), petDto.idade(), petDto.peso());
                 pet.setAbrigo(abrigo);
                 pet.setAdotado(false);
                 abrigo.getPets().add(pet);
+
                 repository.save(abrigo);
                 return ResponseEntity.ok().build();
             } catch (EntityNotFoundException enfe) {
