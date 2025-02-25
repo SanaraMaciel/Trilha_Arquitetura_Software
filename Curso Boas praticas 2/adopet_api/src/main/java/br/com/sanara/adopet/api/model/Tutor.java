@@ -1,10 +1,6 @@
 package br.com.sanara.adopet.api.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
 
 import java.util.List;
 import java.util.Objects;
@@ -15,25 +11,17 @@ public class Tutor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
-    @NotBlank
-    @Column(name = "nome")
     private String nome;
 
-    @NotBlank
-    @Pattern(regexp = "\\(?\\d{2}\\)?\\d?\\d{4}-?\\d{4}")
-    @Column(name = "telefone")
+    //@Pattern(regexp = "\\(?\\d{2}\\)?\\d?\\d{4}-?\\d{4}") anotacao para regex de formato telefone
     private String telefone;
 
-    @NotBlank
-    @Email
-    @Column(name = "email")
+    //@Email anotacao para fazer formatacao e validacao de email válido
     private String email;
 
-    @OneToMany(mappedBy = "tutor", fetch = FetchType.EAGER)
-    @JsonManagedReference("tutor_adocoes")
+    @OneToMany(mappedBy = "tutor")
     private List<Adocao> adocoes;
 
     @Override
