@@ -1,0 +1,18 @@
+Para saber mais: testes de mutação
+
+Ao longo do curso estamos fazendo alterações propositais nos códigos testados, forçando bugs para avaliar se os testes são capazes de detectá-los. Tais modificações que estamos fazendo são conhecidas como mutações.
+
+Quando se trata de garantir a integridade do código em testes automatizados, muitas vezes surge a necessidade de identificar tais mutações, ou seja, alterações indesejadas no código que podem impactar seu comportamento. No entanto, identificar essas mutações manualmente é um processo complexo e propenso a erros. É aí que entra o teste de mutação como solução.
+
+O teste de mutação envolve a introdução de pequenas alterações no código-fonte original, simulando erros comuns que as pessoas podem cometer. Em seguida, os testes automatizados são executados contra essas versões mutantes do código, procurando falhas nos casos de teste.
+
+Se os testes não detectarem bugs com as mutações introduzidas, isso indica uma falha nos casos de teste, alertando sobre lacunas em sua cobertura de testes e possíveis vulnerabilidades no código.
+
+Em Java existe uma biblioteca chamada Pitest que consegue automatizar esse processo de realizar mutações nos códigos para avaliar se os testes automatizados estão sendo efetivos.
+
+Para aprofundar seus conhecimentos no assunto, recomendamos o Alura+ Testes de Mutação - Testando seus testes, que traz a descrição de um cenário real de testes de mutação.
+
+Links: 
+
+* Pitest: https://pitest.org/
+* usando teste de mutação: https://cursos.alura.com.br/extra/alura-mais/testes-de-mutacao-testando-seus-testes-c186
