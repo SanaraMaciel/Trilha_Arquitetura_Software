@@ -14,8 +14,9 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 
 @SpringBootTest
 @AutoConfigureMockMvc //anotacao para poder injetar o MockMvc na classe
@@ -91,6 +92,85 @@ class AdocaoControllerTest {
         assertEquals("Adoção solicitada com sucesso!", response.getContentAsString());
     }
 
-    // outros testes omitidos
+    @Test
+    void deveriaDevolverCodigo200ParaRequisicaoDeAprovarAdocao() throws Exception {
+        //ARRANGE
+        String json = """
+                {
+                    "idAdocao": 1
+                }
+                """;
+
+        //ACT
+        MockHttpServletResponse response = mockMvc.perform(
+                put("/adocoes/aprovar")
+                        .content(json)
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andReturn().getResponse();
+
+        //ASSERT
+        assertEquals(200, response.getStatus());
+    }
+
+    @Test
+    void deveriaDevolverCodigo400ParaRequisicaoDeAprovarAdocaoInvalida() throws Exception {
+        //ARRANGE
+        String json = """
+                {
+                
+                }
+                """;
+
+        //ACT
+        MockHttpServletResponse response = mockMvc.perform(
+                put("/adocoes/aprovar")
+                        .content(json)
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andReturn().getResponse();
+
+        //ASSERT
+        assertEquals(400, response.getStatus());
+    }
+
+    @Test
+    void deveriaDevolverCodigo200ParaRequisicaoDeReprovarAdocao() throws Exception {
+        //ARRANGE
+        String json = """
+                {
+                    "idAdocao": 1,
+                    "justificativa": "qualquer"
+                }
+                """;
+
+        //ACT
+        MockHttpServletResponse response = mockMvc.perform(
+                put("/adocoes/reprovar")
+                        .content(json)
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andReturn().getResponse();
+
+        //ASSERT
+        assertEquals(200, response.getStatus());
+    }
+
+    @Test
+    void deveriaDevolverCodigo400ParaRequisicaoDeReprovarAdocaoInvalido() throws Exception {
+        //ARRANGE
+        String json = """
+                {
+                
+                }
+                """;
+
+        //ACT
+        MockHttpServletResponse response = mockMvc.perform(
+                put("/adocoes/reprovar")
+                        .content(json)
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andReturn().getResponse();
+
+        //ASSERT
+        assertEquals(400, response.getStatus());
+    }
 
 }
