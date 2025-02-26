@@ -15,6 +15,8 @@ Repositório no GitHub: Um repositório que contém uma ampla coleção de imple
 - Refactoring Guru:  [Refactoring Guru](https://refactoring.guru/pt-br/design-patterns)
 - TutorialsPoint:  [TutorialsPoint](https://www.tutorialspoint.com/design_pattern/index.htm)
 - Repositório no GitHub:  [Repositório no GitHub](https://github.com/iluwatar/java-design-patterns)
+- Outras bibliotecas de Mock:  [libs do Mock](https://cursos.alura.com.br/course/boas-praticas-programacao-testes-java/task/139563)
+- Tipos de Testes: [tipos de testes](https://www.alura.com.br/artigos/tipos-de-testes-principais-por-que-utiliza-los)
 
 
 ## 📚 Tópicos Abordados
